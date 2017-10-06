@@ -28,3 +28,16 @@
 #loginpop{
     font-size: 10px;
 }
+
+.deviceHeadersDeco{
+    font-weight: bold;   
+}
+
+.deviceTabDeco{
+    margin-left:2%;
+    margin-top:2%;
+}
+
+.deviceConetent{
+    padding-top:3%;
+}
