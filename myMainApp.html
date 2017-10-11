@@ -14,9 +14,10 @@
                   <div class="navbar-header">
                     <a class="navbar-brand" href="">PROTOS</a>
                   </div>
-                  <ul class="nav navbar-nav">
-                    
-                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      
+                      <li><a href="http://localhost:80/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                    </ul>
                 </div>
               </nav>
 
@@ -30,64 +31,1180 @@
                   <div class="col-sm-12">
 
                    
-                        <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home">Devices</a></li>
-                          <li><a data-toggle="tab" href="#menu1">Rules</a></li>
-                          <li><a data-toggle="tab" href="#menu2">Dashboards</a></li>
+                        <ul class="nav nav-pills nav-justified" id="navigatorPills">
+                          <li class="active"><a data-toggle="pill" href="#home">Devices</a></li>
+                          <li><a data-toggle="pill" href="#menu1">Rules</a></li>
+                          <li><a data-toggle="pill" href="#menu2">Dashboards</a></li>
                         </ul>
                       
+                        <!-- Device Tab Content -->
                         <div class="tab-content">
                           <div id="home" class="tab-pane fade in active">
                             <h3>Device</h3>
-
-                             <!-- Content for WAF -->
-                            <div class="row deviceConetent">
+                             <!-- Content for WAF - f5 -->
+                             <hr class="headerSeperator deviceTabDeco">
+                            <div class="row">
                                 <div class="col-sm-0"></div>
                                 <div class="col-sm-12">
+                                  
                                   <p class="deviceHeadersDeco deviceTabDeco">WAF - F5</p>
-                                  <p class="deviceTabDeco">This test will check the WAF (F5) with SQL injection script with "HeartBeat"</p>
+                                  <p class="deviceTabDeco">This test will check the WAF (F5) with SQL injection script with "HeartBeat".</p>
                                   
                                   <div class="row" >
-                                     <div class="col-sm-2 deviceTabDeco">
+                                      <div class="col-xs-6" id="changeSriptCheck">
                                           <div class="checkbox">
                                               <label><input type="checkbox" value="">Change Script</label>
                                           </div>
+                                       </div>
+                                       <div class="col-xs-6 "></div>
+                                       <div class="col-xs-0"></div>
                                       </div>
-                                      <div class="col-xs-1"></div>
-                                      <div class="col-sm-9 deviceTabDeco">
-                                          <input type="text" class="form-control" name="pwd" id="pwd">
+                                  
+
+                                  <div class="row" >
+                                     <div class="col-xs-2 ">
+                                          
                                       </div>
+                                      
+                                      <div class="col-xs-8 ">
+                                              <input type="text" class="form-control deviceTabDeco" name="pwd" id="pwd">
+                                      </div>
+                                      <div class="col-xs-2"></div>
                                   </div>
-                              
-                                  <button type="button" class="btn btn-primary btn-block deviceTabDeco">Test</button>
+                                  
+                                  <div class="row">
+                                      <div class="col-xs-2"></div>
+                                      <div class="col-xs-8"><button type="button" class="btn btn-primary btn-block deviceTabDeco" id="wafBtn">Test</button>
+                                      </div>
+                                      <div class="col-xs-2"></div>
+                                  </div>
+
                                 </div>
                                 <div class="col-sm-0"></div>
                               </div>
                               
-                              <!-- Content for FW -->
+                              <!-- Content for FW - fortinet-->
                               <div class="row deviceConetent">
                                   <div class="col-sm-0"></div>
                                   <div class="col-sm-12">
+                                    <hr class="headerSeperator deviceTabDeco">
                                     <p class="deviceHeadersDeco deviceTabDeco">Fire Wall - Fortinet</p>
                                     <p class="deviceTabDeco">This test will check the Fortigate FW With HTTP request to port 62,000.</p>                  
-                                    <button type="button" class="btn btn-primary btn-block deviceTabDeco">Test</button>
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-8"><button type="button" class="btn btn-primary btn-block deviceTabDeco">Test</button>
+                                        </div>
+                                        <div class="col-xs-2"></div>
+                                    </div>
                                   </div>
                                   <div class="col-sm-0"></div>
                                 </div>
+
+                                <!-- Content for IPS - McaFee-->
+                              <div class="row deviceConetent">
+                                <div class="col-sm-0"></div>
+                                <div class="col-sm-12">
+                                  <hr class="headerSeperator deviceTabDeco">
+                                  <p class="deviceHeadersDeco deviceTabDeco">IPS - McAfee</p>
+                                  <p class="deviceTabDeco">This test will check IntruShield IPS with CMD.exe execution attempt.</p>                  
+                                  <div class="row">
+                                      <div class="col-xs-2"></div>
+                                      <div class="col-xs-8"><button type="button" class="btn btn-primary btn-block deviceTabDeco">Test</button>
+                                      </div>
+                                      <div class="col-xs-2"></div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-0"></div>
+                              </div>
+
+
+                                <!-- Content for All devices-->
+                                <div class="row deviceConetent">
+                                  <div class="col-sm-0"></div>
+                                  <div class="col-sm-12">
+                                    <hr class="headerSeperator deviceTabDeco">
+                                    <p class="deviceHeadersDeco deviceTabDeco">All Devices</p>
+                                    <p class="deviceTabDeco">This test will check all the devices (FW,WAF,IPS)</p>                  
+                                    <label class="deviceTabDeco" for="sel1">Select Time intervals:</label>
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-8"><select class="form-control deviceTabDeco" id="sel1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                            <option>21</option>
+                                            <option>22</option>
+                                            <option>23</option>
+                                            <option>24</option>
+                                          </select></button>
+                                        </div>
+                                        <div class="col-xs-2"></div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-8"><button type="button" class="btn btn-primary btn-block deviceTabDeco" id="allDeviceBtn">Test</button>
+                                        </div>
+                                        <div class="col-xs-2"></div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-0"></div>
+                                </div>
+
+
+                                
                           </div>
 
+                          <!-- Rules Tab Content -->
                           <div id="menu1" class="tab-pane fade">
                             <h3>Rules</h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <hr class="headerSeperator deviceTabDeco">
+                            <div class="row deviceConetent">
+                                <div class="col-sm-3">
+                                  
+                                
+                                <div class="row">                                
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h5>Schedualed Tests</h5>
+                                      </div>
+                                      <div class="panel-body" id="schedRulesPanel">
+                                          
+                                      </div>
+
+                                      <!-- <div class="panel-footer">Panel Footer</div> -->
+                                    </div>
+                                   </div>
+                                   <div class="row"> 
+                                      <div class="panel panel-default" >
+                                          <div class="panel-heading">
+                                            <h5>Intervals:</h5>
+                                          </div>
+                                          <div class="panel-body" id="intervalsPanel">
+                                            <p class="">Please select time intervelas between tests </p>
+                                            <p>(0 for single test)</p>
+                                            <select class="form-control form-control-sm">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                                <option>13</option>
+                                                <option>14</option>
+                                                <option>15</option>
+                                                <option>16</option>
+                                                <option>17</option>
+                                                <option>18</option>
+                                                <option>19</option>
+                                                <option>20</option>
+                                                <option>21</option>
+                                                <option>22</option>
+                                                <option>23</option>
+                                                <option>24</option>
+                                              </select>
+                                              <button type="submit" class="btn btn-primary btn-block" >Start</button>
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                </div>
+
+                                <div class="col-sm-9">
+                                    <ul class="nav nav-pills nav-justified info">
+                                        <li class="active"><a data-toggle="pill" href="#2xxRulesTab">2XX</a></li>
+                                        <li><a data-toggle="pill" href="#3xxRulesTab">3XX</a></li>
+                                        <li><a data-toggle="pill" href="#4xxRulesTab">4XX</a></li>
+                                        <li><a data-toggle="pill" href="#5xxRulesTab">5XX</a></li>
+                                        <li><a data-toggle="pill" href="#6xxRulesTab">6XX</a></li>
+                                        <li><a data-toggle="pill" href="#7xxRulesTab">7XX</a></li>
+                                      </ul>
+                      <!-- 2XX Family -->     
+                                      <div class="tab-content">
+                                        <div id="2xxRulesTab" class="tab-pane fade in active">
+                                          <h3>2xx - Family</h3>
+                                          <table class="table table-hover" id="2xxTable">
+                                              <thead>
+                                                <tr>
+                                                  <th><label><input type="checkbox" id="checkMain2xx" value=""></label></th>
+                                                  <th>Rule Number</th>
+                                                  <th>Rule Name</th>
+                                                  <th></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                <td><label><input type="checkbox" value=""></label></td>  
+                                                  <td>201</td>
+                                                  <td>Doe</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>202</td>
+                                                  <td>Moe</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>203</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>204</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>205</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>206</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>207</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>208</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>209</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>210</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>211</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>212</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>213</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>214</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>215</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>216</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>217</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>218</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>219</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                              
+                                                   <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>220</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>221</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>222</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>223</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>224</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>225</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>226</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>227</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>228</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>229</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>230</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>231</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>232</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>233</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>234</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>235</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>236</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>237</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>238</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>239</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>240</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>241</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>242</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>243</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>244</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>245</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>246</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>247</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>248</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>249</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
+                                          
+                                        </div>
+              <!-- 3xx Family -->
+                                        <div id="3xxRulesTab" class="tab-pane fade">
+                                          <h3>3xx - Family</h3>
+                                          <table class="table table-hover" id="3xxTable">
+                                              <thead>
+                                                <tr>
+                                                  <th><label><input type="checkbox" id="checkMain3xx" value=""></label></th>
+                                                  <th>Rule Number</th>
+                                                  <th>Rule Name</th>
+                                                  <th></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td><label><input type="checkbox" value=""></label></td>  
+                                                  <td>301</td>
+                                                  <td>Doe</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>302</td>
+                                                  <td>Moe</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>303</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>304</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>305</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>306</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>307</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>308</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>309</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>310</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>311</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>312</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>313</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>314</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>315</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>316</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>317</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>318</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>319</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                              
+                                                   <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>320</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>321</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>322</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>323</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>324</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>325</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>326</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>327</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>328</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>329</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>330</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>331</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>332</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>333</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>334</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>335</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>336</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>337</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>338</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>339</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>340</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>341</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>342</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>343</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>344</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>345</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>346</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>347</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>                                               
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>348</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label><input type="checkbox" value=""></label></td>
+                                                    <td>349</td>
+                                                    <td>Dooley</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
+                                        </div>
+                                        
+              <!-- 4xx Family -->
+                                        <div id="4xxRulesTab" class="tab-pane fade">
+                                          <h3>4xx - Family</h3>
+                                                   
+                                          <table class="table table-hover" id="4xxTable">
+                                            <thead>
+                                              <tr>
+                                                <th><label><input type="checkbox" id="checkMain4xx" value=""></label></th>
+                                                <th>Rule Number</th>
+                                                <th>Rule Name</th>
+                                                <th></th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                              <td><label><input type="checkbox" value=""></label></td>  
+                                                <td>401</td>
+                                                <td>Doe</td>
+                                                <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                <td>402</td>
+                                                <td>Moe</td>
+                                                <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                <td>403</td>
+                                                <td>Dooley</td>
+                                                <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>404</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>405</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>406</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>407</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>408</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>409</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>410</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>411</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>412</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>413</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>414</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>415</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>416</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>417</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>418</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>419</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                              
+                                                 <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>420</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>421</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>422</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>423</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>424</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>425</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>426</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>427</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>428</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>429</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>430</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>431</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>432</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>433</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>434</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>435</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>436</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>437</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>438</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>439</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>440</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>441</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>442</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>443</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>444</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>445</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>446</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>447</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>                                               
+                                                <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>448</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              <tr>
+                                                  <td><label><input type="checkbox" value=""></label></td>
+                                                  <td>449</td>
+                                                  <td>Dooley</td>
+                                                  <td><button type="button" class="btn btn-info btn-sm">Test</button></td>
+                                              </tr>
+                                              
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <div id="5xxRulesTab" class="tab-pane fade">
+                                            <h3>5xx - Family</h3>
+                                            <p>Some content.</p>
+                                          </div>
+                                          <div id="6xxRulesTab" class="tab-pane fade">
+                                            <h3>6xx - Family</h3>
+                                            <p>Some content in menu 1.</p>
+                                          </div>
+                                          <div id="7xxRulesTab" class="tab-pane fade">
+                                            <h3>7xx - Family</h3>
+                                            <p>Some content in menu 2.</p>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                            
                           </div>
+
                           <div id="menu2" class="tab-pane fade">
                             <h3>Dashboards</h3>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                           </div>
-                          <div id="menu3" class="tab-pane fade">
-                            <h3>Menu 3</h3>
-                            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                          </div>
+                          
                         </div>
                       
 
